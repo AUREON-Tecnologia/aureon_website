@@ -1,9 +1,14 @@
-export async function sendEmail(data: {
+export interface ContactPayload {
     name: string;
     email: string;
     company: string;
     message: string;
-}) {
+    consent: boolean;
+    /** Honeypot: hidden from people, bots tend to fill it. Must stay empty. */
+    website: string;
+}
+
+export async function sendEmail(data: ContactPayload) {
     const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
@@ -12,10 +17,10 @@ export async function sendEmail(data: {
         body: JSON.stringify(data),
     });
 
-    const result = await response.json();
+    const result = await response.json().catch(() => null);
 
     if (!response.ok) {
-        throw new Error(result?.message || "Error al enviar el correo");
+        throw new Error(result?.message || "Ocurrió un error al enviar el mensaje.");
     }
 
     return result;

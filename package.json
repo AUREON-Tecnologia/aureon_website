@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node server/index.mjs",
+    "test": "node --test server/*.test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
@@ -15,6 +17,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "express": "^5.2.1",
     "framer-motion": "^12.42.2",
     "lucide-react": "^1.27.0",
     "react": "^19.2.7",
@@ -39,5 +42,8 @@
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.62.0",
     "vite": "^8.1.1"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   }
 }

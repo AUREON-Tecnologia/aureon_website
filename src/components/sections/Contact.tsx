@@ -10,6 +10,8 @@ function Contact() {
     email: "",
     company: "",
     message: "",
+    consent: false,
+    website: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -28,9 +30,15 @@ function Contact() {
         email: "",
         company: "",
         message: "",
+        consent: false,
+        website: "",
       });
     } catch (error) {
-      alert("Ocurrió un error al enviar el mensaje.");
+      alert(
+        error instanceof Error
+          ? error.message
+          : "Ocurrió un error al enviar el mensaje.",
+      );
     } finally {
       setLoading(false);
     }
@@ -78,7 +86,7 @@ function Contact() {
                   </p>
 
                   <p>
-                    contacto@aureon.com
+                    contacto@aureontec.com
                   </p>
                 </div>
 
@@ -155,6 +163,8 @@ function Contact() {
               <input
                   type="text"
                   placeholder="Nombre"
+                  required
+                  maxLength={100}
                   value={form.name}
                   onChange={(e) =>
                       setForm({
@@ -179,6 +189,8 @@ function Contact() {
               <input
                   type="email"
                   placeholder="Correo electrónico"
+                  required
+                  maxLength={200}
                   value={form.email}
                   onChange={(e) =>
                       setForm({
@@ -203,6 +215,7 @@ function Contact() {
               <input
                   type="text"
                   placeholder="Empresa"
+                  maxLength={150}
                   value={form.company}
                   onChange={(e) =>
                       setForm({
@@ -226,6 +239,9 @@ function Contact() {
 
               <textarea
                   placeholder="Cuéntanos sobre tu proyecto"
+                  required
+                  minLength={10}
+                  maxLength={5000}
                   rows={5}
                   value={form.message}
                   onChange={(e) =>
@@ -247,6 +263,51 @@ function Contact() {
                      focus:ring-2
                      focus:ring-blue-500/20"
               />
+
+              {/* Honeypot: oculto para personas; si llega con valor, el servidor lo descarta. */}
+              <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  value={form.website}
+                  onChange={(e) =>
+                      setForm({
+                        ...form,
+                        website: e.target.value,
+                      })
+                  }
+                  className="absolute left-[-9999px] h-px w-px opacity-0"
+              />
+
+              <label className="flex items-start gap-3 text-sm text-slate-600">
+                <input
+                    type="checkbox"
+                    required
+                    checked={form.consent}
+                    onChange={(e) =>
+                        setForm({
+                          ...form,
+                          consent: e.target.checked,
+                        })
+                    }
+                    className="mt-1 h-4 w-4 shrink-0 accent-blue-600"
+                />
+                <span>
+                  Autorizo a AUREON TECNOLOGIA S.A.S. a tratar mis datos para
+                  responder esta solicitud, según la{" "}
+                  <a
+                      href="/privacidad/"
+                      target="_blank"
+                      rel="noopener"
+                      className="font-medium text-blue-600 underline"
+                  >
+                    Política de Tratamiento de Datos Personales
+                  </a>
+                  .
+                </span>
+              </label>
 
               <Button
                   type="submit"

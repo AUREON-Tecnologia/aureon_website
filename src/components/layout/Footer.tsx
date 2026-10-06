@@ -37,9 +37,23 @@ function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-8 max-w-7xl border-t border-white/10 pt-6 text-center text-sm text-slate-500">
-        © {new Date().getFullYear()} AUREON Tecnologías. Todos los derechos
-        reservados.
+      <div className="mx-auto mt-8 flex max-w-7xl flex-col gap-4 border-t border-white/10 pt-6 text-center text-sm text-slate-500 md:flex-row md:items-center md:justify-between md:text-left">
+        <p>
+          © {new Date().getFullYear()} AUREON TECNOLOGIA S.A.S. · NIT
+          902088965-2. Todos los derechos reservados.
+        </p>
+
+        <nav aria-label="Legal" className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+          <a href="/privacidad/" className="transition hover:text-white">
+            Política de datos
+          </a>
+          <a href="/terminos/" className="transition hover:text-white">
+            Términos del servicio
+          </a>
+          <a href="/eliminacion-de-datos/" className="transition hover:text-white">
+            Eliminación de datos
+          </a>
+        </nav>
       </div>
     </footer>
   );
