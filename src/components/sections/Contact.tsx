@@ -111,7 +111,7 @@ function Contact() {
                     Teléfono
                   </p>
                   <p>
-                    +57 000 000 0000
+                    +57 311 513 2755
                   </p>
                 </div>
 
@@ -137,7 +137,7 @@ function Contact() {
                   </p>
 
                   <p>
-                    Colombia
+                    Tunja, Boyacá, Colombia
                   </p>
                 </div>
 
