@@ -111,7 +111,7 @@ function Contact() {
                     Teléfono
                   </p>
                   <p>
-                    +57 311 513 2755
+                    +57 317 075 0878
                   </p>
                 </div>
 

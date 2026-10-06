@@ -9,7 +9,7 @@ export const company = {
 
   email: "contacto@aureontec.com",
 
-  phone: "+57 311 513 2755",
+  phone: "+57 317 075 0878",
 
   country: "Colombia",
 
