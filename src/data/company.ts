@@ -7,9 +7,9 @@ export const company = {
   description:
     "Desarrollamos soluciones SaaS, inteligencia artificial, automatización y software empresarial para impulsar la transformación digital.",
 
-  email: "contacto@aureon.com",
+  email: "contacto@aureontec.com",
 
-  phone: "+57 000 000 0000",
+  phone: "+57 311 513 2755",
 
   country: "Colombia",
 
